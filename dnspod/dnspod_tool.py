@@ -1,10 +1,9 @@
 # coding=utf-8
 
-from dnspod_fun import *
 import time
+from dnspod_fun import *
 
-
-class Dnspod_tool:
+class Dnspod_dict_tool:
 
     def __init__(self, email, password, domain_name_list, value, **kw):
         self.email = email
@@ -19,29 +18,40 @@ class Dnspod_tool:
         )
         self.params.update(kw)
 
-    def modify(self, **kw):
-        domain_list_json = get_domain_list_json(
-            email=self.email, password=self.password)
-        domain_ids = list()
-
-        for name in self.domain_name_list:
-            domain_id = get_domain_id(
-                name=name, domain_list_json=domain_list_json)
-            domain_ids.append(domain_id)
-
-        pod = dict()
-        for domain_id in domain_ids:
-            record_id_dict = get_record_id_dict(
-                email=self.email, password=self.password, domain_id=domain_id)
+    def modify(self,m_params,**kw):
+        if m_params:
+            pass
+        else:
+            domain_id_list = get_domain_id_list(self)
+            record_list = get_record_list(self,domain_id_list)
+        for record in record_list:
+            print modify_record(email=self.email, password=self.password, domain_id=record.domain_id, sub_domain=record.name, record_type=self.params['record_type'],
+record_line=self.params['record_line'], value=self.value, ttl=self.params['ttl'], record_id=record.id)
             time.sleep(1)
-            pod.update({domain_id: record_id_dict})
 
-        for domain_id in pod.keys():
-            r_dict = pod.get(domain_id)
-            for r_id in r_dict.keys():
-                print modify_record(
-                    email=self.email, password=self.password, domain_id=domain_id, sub_domain=r_dict.get(r_id), record_type=self.params['record_type'],
-record_line=self.params['record_line'], value=self.value, ttl=self.params['ttl'], record_id=r_id)
-                time.sleep(2)
 
-    __call__ = modify
+#    def ip_val(self,wan_ip):
+#        domain_id_list = get_domain_id_list(self)
+#        record_ip_dict = get_record_ip_dict(email=self.email, password=self.password, domain_id=domain_id)
+#        params = dict()
+#        for k in record_ip_dict.keys():
+#            if record_ip_dict.get(k) != wan_ip:
+#                params.update({k:})
+
+
+    def get_domain_id_list(self):
+        domain_id_list = list()
+        domain_list = domains(email=email,password=password)
+        for domain in domain_list:
+            for name in self.domain_name_list:
+                if domain.name == name:
+                    domain_id_list.append(domain.id)
+        return domain_id_list
+
+    def get_record_list(self,domain_id_list):
+        record_list = list()
+        for domain_id in domain_id_list:
+            record_list = records(email=self.email, password=self.password, domain_id=domain_id)
+            time.sleep(1)
+        return record_list
+    

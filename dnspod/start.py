@@ -3,7 +3,7 @@ import time
 import dnspod_tool
 import ip
 
-def modify():
+def init_params():
 	params = dict()
 	try:
 		conf = open('conf/dnspod.conf','r')
@@ -14,15 +14,25 @@ def modify():
 			if ',' in v:
 				v = v.split(',')
 			params.update({k:v})
-		pod = dnspod_tool.Dnspod_tool(**params)
-		pod()
+		return params
 	except Exception, e:
 		raise e
 	finally:
 		conf.close()
 
+params = init_params()
+pod = dnspod_tool.Dnspod_tool(**params)
+
+wan_ip = ip.get_from_local()
+
+
+m_params = dict({})
+pod.modify(m_params)
+
 while True:
-	last_ip = ip.get_from_local()
-	
+
+	now_ip = ip.get_from_local()
+
 	time.sleep(1)
 	print 'hi'
+
