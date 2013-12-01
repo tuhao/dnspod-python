@@ -38,6 +38,21 @@ class Domain:
         self.params = dict()
         self.params.update(kw)
 
+    def modify(self,record_list,**kw):
+    	if record_list:
+    		print record_list
+    	else:
+    		print 'Not exits!'
+
+    def next(self,record_list):
+        if record_list:
+            print record_list
+        else:
+            print 'Not exits!'
+
+params = dict(id='1',name='hi',status='enable')
+domain = Domain(**params)
+domain.next(None)
 #text = open('record.txt','r')
 #records = eval(text.read())
 ##print records.get('records')
@@ -50,12 +65,16 @@ class Domain:
 #text.close()
 #print result[0].params
 
-result = list()
-text = open('domain.txt','r')
-domains = eval(text.read())
-for item in domains.get('domains'):
-	params = dict(item)
-	result.append(Domain(**params))
-	#print item
-text.close()
-print result[0].id
+#result = list()
+#text = open('domain.txt','r')
+#domains = eval(text.read())
+#for item in domains.get('domains'):
+#	params = dict(item)
+#	result.append(Domain(**params))
+#	#print item
+#text.close()
+#record_lis = ['hi']
+#result[0].modify(record_lis)
+
+
+
