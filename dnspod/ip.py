@@ -7,6 +7,7 @@ def find_ip(content):
 	return pattern.search(content).group(0)
 
 def get():
+	"""Get IP from ip138.com"""
 	try:
 		content = urllib2.urlopen('http://iframe.ip138.com/ic.asp').read()
 		return find_ip(content)
@@ -17,7 +18,9 @@ def get():
 
 import base64
 
+
 def get_from_local():
+	"""Get wan IP from family router"""
 	url = 'http://192.168.0.1/info.htm'
 	auth = base64.encodestring('admin:504504')
 	headers = {'Authorization':"Basic " + auth}
