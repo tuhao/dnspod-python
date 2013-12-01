@@ -1,32 +1,28 @@
 #coding=utf-8
-import sys
-from dnspod import *
+import time
+import dnspod_tool
+import ip
 
-params = dict()
-try:
-	conf = open('conf/dnspod.conf','r')
-	for item in conf.readlines():
-		params.update({item.split('=')[0].strip():str(item.split('=')[1].strip())})
-	pod = Dnspod(params)
-except Exception, e:
-	raise e
-finally:
-	conf.close()
+def modify():
+	params = dict()
+	try:
+		conf = open('conf/dnspod.conf','r')
+		for item in conf.readlines():
+			temp = item.split('=')
+			k = temp[0].strip()
+			v = temp[1].strip()
+			if ',' in v:
+				v = v.split(',')
+			params.update({k:v})
+		pod = dnspod_tool.Dnspod_tool(**params)
+		pod()
+	except Exception, e:
+		raise e
+	finally:
+		conf.close()
 
-print params
-
-
-if len(sys.argv) > 1:
-	params = {'-e':'youremail@mail.com','-p':'yourpassword','-d':'yourdomain'}
-
-	for arg in sys.argv:
-		value = params.get(arg,None)
-		if value:
-			params.update({arg:value})
-			#print arg + '  value:' + str(params.get(arg,None))
-	print params
-		
-else:
-	#print "Usege: python xxx.py -d yourdomain -e youremail -p yourpassword"
-	pass
-
+while True:
+	last_ip = ip.get_from_local()
+	
+	time.sleep(1)
+	print 'hi'

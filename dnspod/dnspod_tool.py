@@ -1,23 +1,25 @@
-#coding=utf-8
+# coding=utf-8
+
 from dnspod_fun import *
 import time
 
-class Dnspod():
- #email, password, domain_name_list, value, 
-    def __init__(self,**kw):
-        #self.email = email
-        #self.password = password
-        #self.domain_name_list = domain_name_list
-        #self.value = value
+
+class Dnspod_tool:
+
+    def __init__(self, email, password, domain_name_list, value, **kw):
+        self.email = email
+        self.password = password
+        self.domain_name_list = domain_name_list
+        self.value = value
+
         self.params = dict(
-        	email='',password='',domain_name_list=list(),value='',
             record_type='A',
-            record_line=u'默认',
+            record_line=u'默认'.encode('utf-8'),
             ttl='600'
         )
         self.params.update(kw)
 
-    def modify():
+    def modify(self, **kw):
         domain_list_json = get_domain_list_json(
             email=self.email, password=self.password)
         domain_ids = list()

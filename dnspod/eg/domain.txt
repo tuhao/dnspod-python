@@ -1,4 +1,0 @@
-[{u'ext_status': u'notexist', u'grade_title': u'\u65b0\u514d\u8d39\u5957\u9910', u'remark': u'', u'searchengine_push': u'yes', u'name': u'yasir.cn', u'grade': u'DP_Free', u'ttl': u'600', u'created_on': u'2013-11-29 17:32:53', u'records': u'4', u'beian': u'no', u'status': u'enable', u'is_vip': u'no', u'is_mark': u'no', u'owner': u'astro.liuhang@gmail.com', u'updated_on': u'2013-11-29 17:33:43', u'group_id': u'1', u'id': 10401132}, {u'ext_status': u'', u'grade_title': u'\u65b0\u514d\u8d39\u5957\u9910', u'remark': u'', u'searchengine_push': u'yes', u'name': u'yasir.pw', u'grade': u'DP_Free', u'ttl': u'600', u'created_on': u'2013-11-28 20:32:33', u'records': u'4', u'beian': u'no', u'status': u'enable', u'is_vip': u'no', u'is_mark': u'no', u'owner': u'astro.liuhang@gmail.com', u'updated_on': u'2013-11-29 17:07:33', u'group_id': u'1', u'id': 10390973}]
-
-
-{'10390973': ['47186219'], '10401132': ['47266579']}
