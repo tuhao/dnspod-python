@@ -15,7 +15,7 @@ class dnspod:
             domain_list = podmodel.domains(
                 email=self.email, password=self.password)
             for domain in domain_list:
-                for name in self.domain_name_list:
+                for name in self.domain_name:
                     if domain.name == name:
                         domain_id_list.append(domain.id)
             return domain_id_list
@@ -36,10 +36,10 @@ class dnspod:
                             'record_type'], record_line=self.params['record_line'], value=value, ttl=self.params['ttl'], record_id=record.id)
                     time.sleep(1)
 
-    def __init__(self, email, password, domain_name_list, **kw):
+    def __init__(self, email, password, domain_name, **kw):
         self.email = email
         self.password = password
-        self.domain_name_list = domain_name_list
+        self.domain_name = domain_name
 
         self.params = dict(
             record_type='A',
