@@ -5,6 +5,7 @@
 上填写的域名记录中，指定的IP字段。
 
 使用：
-1.首先，注册登录https://www.dnspod.cn/Domain，填写相关域名信息。
+1.首先，注册登录https://www.dnspod.cn/Domain
+填写相关域名信息。
 2.填写dnspod.conf配置文件中相关信息，email，password及域名名称是必须的。
 3.运行start.py开始监控。
