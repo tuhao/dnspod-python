@@ -12,7 +12,7 @@ def init_params():
 			temp = item.split('=')
 			k = temp[0].strip()
 			v = temp[1].strip()
-			if k == 'domain_name_list':
+			if k == 'domain_name':
 				v = v.split(',')
 			params.update({k:v})
 		return params
