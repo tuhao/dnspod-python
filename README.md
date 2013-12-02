@@ -1,4 +1,4 @@
-基于dnspod-api的工具,自动更新DNSPOD域名A记录。
+基于dnspod-api,自动更新DNSPOD域名A记录。
 
 家庭带宽多无固定IP地址，这个应用自动检测Wan口IP（公网IP）变化，并自动更新先前在https://www.dnspod.cn/Domain
 上填写的A域名记录指定的IP字段。
