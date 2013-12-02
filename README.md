@@ -4,7 +4,7 @@
 这个应用自动检测Wan口IP（公网IP）变化，并自动更新先前在https://www.dnspod.cn/Domain
 上填写的域名记录中，指定的IP字段。
 
-使用：
+##使用：
 1.首先，注册登录https://www.dnspod.cn/Domain
 填写相关域名信息。
 2.填写dnspod.conf配置文件中相关信息，email，password及域名名称是必须的。
