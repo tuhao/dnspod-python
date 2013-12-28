@@ -48,7 +48,12 @@ while True:
 		print 'modify begin at ' + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 		try:
 			instance.modify(record_list=instance.get_records(),value=now_ip)
-			wan_ip = now_ip
 		except Exception, e:
 			print e
+			now_ip = ip.get()
+			try:
+				instance.modify(record_list=instance.get_records(),value=now_ip)
+			except Exception, e:
+				print e
+		wan_ip = now_ip
 	time.sleep(60)
