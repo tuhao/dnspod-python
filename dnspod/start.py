@@ -2,12 +2,14 @@
 import time
 import pod
 import ip
+import os
 
+CONF_FILE = os.path.join(os.path.dirname(__file__),'conf') + '/dnspod.conf'
 
 def init_params():
 	params = dict()
 	try:
-		conf = open('conf/dnspod.conf','r')
+		conf = open(CONF_FILE,'r')
 		for item in conf.readlines():
 			temp = item.split('=')
 			k = temp[0].strip()
