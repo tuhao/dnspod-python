@@ -15,11 +15,10 @@ def init_params():
 			if k == 'domain_name':
 				v = v.split(',')
 			params.update({k:v})
+		conf.close()
 		return params
 	except Exception, e:
 		raise e
-	finally:
-		conf.close()
 
 
 #wan_ip = ip.get_from_local()
