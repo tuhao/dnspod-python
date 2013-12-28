@@ -16,7 +16,9 @@ def get_from_local():
 	"""Get wan IP from family router"""
 	url = 'http://192.168.0.1/info.htm'
 	auth = base64.encodestring('admin:504504')
-	headers = {'Authorization':"Basic " + auth}
+	headers = {'Authorization':'Basic ' + auth}
 	req = urllib2.Request(url, None, headers)
 	response = urllib2.urlopen(req)
-	return find_ip(response.read())
+	ret = response.read()
+	response.close()
+	return find_ip(ret)

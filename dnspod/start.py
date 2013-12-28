@@ -46,6 +46,9 @@ while True:
 		print wan_ip + ' is outdate,' 
 		print 'now wan ip is ' + now_ip 
 		print 'modify begin at ' + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
-		instance.modify(record_list=instance.get_records(),value=now_ip)
-		wan_ip = now_ip
+		try:
+			instance.modify(record_list=instance.get_records(),value=now_ip)
+			wan_ip = now_ip
+		except Exception, e:
+			print e
 	time.sleep(60)
