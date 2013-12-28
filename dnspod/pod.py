@@ -33,17 +33,16 @@ class dnspod:
                 for record in record_list:
                     print podmodel.modify_record(
                         email=self.email, password=self.password, domain_id=record.domain_id, sub_domain=record.name, record_type=self.params[
-                            'record_type'], record_line=self.params['record_line'], value=value, ttl=self.params['ttl'], record_id=record.id)
+                            'record_type'], record_line=self.params['record_line'], value=value, ttl=self.ttl, record_id=record.id)
                     time.sleep(1)
 
-    def __init__(self, email, password, domain_name, **kw):
+    def __init__(self, email, password, domain_name,ttl, **kw):
         self.email = email
         self.password = password
         self.domain_name = domain_name
-
+        self.ttl = ttl
         self.params = dict(
             record_type='A',
-            record_line=u'默认'.encode('utf-8'),
-            ttl='800'
+            record_line=u'默认'.encode('utf-8')
         )
         self.params.update(kw)
