@@ -40,8 +40,8 @@ instance.modify(record_list=need_modify,value=wan_ip)
 #print 'done,start to monitor work' 
 
 print time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())) + ' ' + wan_ip
-now_ip = ip.get_from_local()
-#now_ip = ip.get()
+#now_ip = ip.get_from_local()
+now_ip = ip.get()
 if wan_ip != now_ip:
 	print wan_ip + ' is outdate,' 
 	print 'now wan ip is ' + now_ip 
