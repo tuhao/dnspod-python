@@ -8,4 +8,4 @@
 填写相关域名信息。
 - 2. 填写dnspod.conf配置文件中相关信息，email，password及domain_name是必须的（如有多个请使用英文的,分隔）。
 - 3. 运行start.py开始监控，可利用crontab完成定期检查，格式为
-* * * * * python start.py >> dnspod.log 2>&1 &
+** * * * * python start.py >> dnspod.log 2>&1 &
