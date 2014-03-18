@@ -8,5 +8,5 @@
 ##使用：
 - 1. 首先，注册登录https://www.dnspod.cn/Domain
 填写相关域名信息。
-- 2. 填写dnspod.conf配置文件中相关信息，email，password及domain_name是必须的（如有多个请使用英文的,分隔）。
+- 2. 填写dnspod.conf配置文件中相关信息，email，password及domain_name是必须的（域名如有多个请使用英文的,分隔）。
 - 3. 利用crontab实现监控，格式为: * * * * * python start.py >> dnspod.log 2>&1 &
