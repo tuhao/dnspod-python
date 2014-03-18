@@ -1,5 +1,6 @@
 ##用途：
-家庭带宽多无固定IP地址，这个应用定期检测Wan口IP（公网IP）变化，检测到变化后，自动更新用户先前在https://www.dnspod.cn/Domain上填写的A域名记录指定的IP字段。
+家庭带宽多无固定IP地址，这个应用定期检测Wan口IP（公网IP）变化，检测到变化后，自动更新用户先前在https://www.dnspod.cn/Domain
+上填写的A域名记录指定的IP字段。
 
 ##使用：
 - 1. 首先，注册登录https://www.dnspod.cn/Domain
