@@ -1,6 +1,8 @@
-##用途：基于dnspod-api,定期（60秒一次）自动更新DNSPOD域名A记录。
+##用途：
+基于dnspod-api,定期（60秒一次）自动更新DNSPOD域名A记录。
 
-##原因：家庭带宽多无固定IP地址，这个应用自动检测Wan口IP（公网IP）变化，并自动更新先前在https://www.dnspod.cn/Domain
+##原因：
+家庭带宽多无固定IP地址，这个应用自动检测Wan口IP（公网IP）变化，并自动更新先前在https://www.dnspod.cn/Domain
 上填写的A域名记录指定的IP字段。
 
 ##使用：
